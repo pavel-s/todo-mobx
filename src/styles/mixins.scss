@@ -1,0 +1,7 @@
+// apply to label
+@mixin set-checkbox-size($size) {
+  &:before {
+    width: $size;
+    height: $size;
+  }
+}

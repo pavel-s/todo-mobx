@@ -1,0 +1,22 @@
+@import './../../styles/colors.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 320px;
+  max-width: 600px;
+  padding: 5px 10px;
+  box-shadow: 0 0 5px $color-gray;
+  flex-shrink: 0;
+
+  & > * {
+    margin-bottom: 10px;
+  }
+
+  .title {
+    color: $color-primary;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+  }
+}
