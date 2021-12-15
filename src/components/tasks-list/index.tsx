@@ -9,7 +9,7 @@ const TasksList = observer(() => {
   const todosStore = useContext(TodoListContext);
   return (
     <div className={styles.container}>
-      {todosStore.todos.map((todo) => (
+      {todosStore.filtered.map((todo) => (
         <div
           className={clsx(styles.task, todo.completed && styles.done)}
           key={todo.id}

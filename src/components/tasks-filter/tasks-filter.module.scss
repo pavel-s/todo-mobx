@@ -1,0 +1,16 @@
+@import './../../styles/colors.scss';
+
+.button {
+  font-size: 12px;
+  padding: 4px;
+  color: $color-secondary;
+
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
+}
+
+.current {
+  border-color: $color-primary;
+  color: $color-primary;
+}

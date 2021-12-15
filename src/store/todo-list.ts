@@ -1,12 +1,13 @@
 import { autorun, makeAutoObservable } from 'mobx';
 import { createContext } from 'react';
 import Todo from './todo';
-import { ITodo, ITodoBase } from './types';
+import { ITodo, ITodoBase, ITodoList } from './types';
 
 const TODOS_STORAGE_KEY = 'todos';
 
-class TodoList {
-  todos: Todo[] = [];
+class TodoList implements ITodoList {
+  todos: ITodo[] = [];
+  filter: ITodoList['filter'] = 'all';
 
   constructor() {
     makeAutoObservable(this);
@@ -29,6 +30,20 @@ class TodoList {
 
   get uncompleted() {
     return this.todos.filter((todo) => !todo.completed);
+  }
+
+  get filtered() {
+    switch (this.filter) {
+      case 'completed':
+        return this.completed;
+
+      case 'uncompleted':
+        return this.uncompleted;
+
+      case 'all':
+      default:
+        return this.todos;
+    }
   }
 
   add({ task }: Pick<ITodo, 'task'>) {

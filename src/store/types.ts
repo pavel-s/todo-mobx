@@ -14,6 +14,7 @@ export interface ITodo extends ITodoBase {
 
 export interface ITodoList {
   todos: ITodo[];
+  filter: 'all' | 'completed' | 'uncompleted';
 
   completed: ITodo[];
   uncompleted: ITodo[];
